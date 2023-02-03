@@ -1,8 +1,3 @@
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minutesEl = document.getElementById("minutes");
-const secondsEl = document.getElementById("seconds");
-const titleEl = document.getElementById("title");
 
 // ESEMPIO 1: PASTA
 // titleEl.innerHTML = "Butta la pasta!";
@@ -64,3 +59,23 @@ const titleEl = document.getElementById("title");
 
 // console.log("today: " + now.getTime());
 // console.log("tomorrow: " + tomorrow.getTime());
+
+
+
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+const titleEl = document.getElementById("title");
+
+let second = 25;
+timing();
+let clock = setInterval(timing, 1000);
+function timing() {
+    if (second >= 0) {
+        secondsEl.innerHTML = (second < 10) ? "0" + second : second;
+        second--;
+    } else {
+        clearInterval(clock)
+    }
+}
