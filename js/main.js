@@ -62,20 +62,40 @@
 
 
 
+
+
+
+// let clock = setInterval(timing, 1000);
+// function timing() {
+//     if (second >= 0) {
+//         secondsEl.innerHTML = (second < 10) ? "0" + second : second;
+//         second--;
+//     } else {
+//         clearInterval(clock)
+//     }
+// }
+
+
 const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
-const titleEl = document.getElementById("title");
 
-let second = 25;
-timing();
-let clock = setInterval(timing, 1000);
+
+
+
+var countDownDate = new Date("2023-02-06 ").getTime("10:08 :00")
+var myfunc = setInterval(timing, 1000)
 function timing() {
-    if (second >= 0) {
-        secondsEl.innerHTML = (second < 10) ? "0" + second : second;
-        second--;
-    } else {
-        clearInterval(clock)
-    }
+
+    let now = new Date("2023-02-04").getTime("09:30:00")
+    let timeleft = countDownDate - now;
+
+
+    daysEl = Math.floor(timeleft % (1000 * 60 * 60 * 24));
+    hoursEl = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    minutesEl = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    secondsEl = Math.floor((timeleft % (1000 * 60)) / 1000);
+    daysEl.innerHTML = (seconds < 10) ? "0" + seconds : seconds;
 }
+
