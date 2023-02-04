@@ -84,8 +84,8 @@ const secondsEl = document.getElementById("seconds");
 
 
 
-var countDownDate = new Date("2023-02-06 ").getTime("10:08 :00")
-var myfunc = setInterval(timing, 1000)
+let countDownDate = new Date("2023-02-06 ").getTime("10:08 :00")
+let myfunc = setInterval(timing, 1000)
 function timing() {
 
     let now = new Date("2023-02-04").getTime("09:30:00")
@@ -96,6 +96,7 @@ function timing() {
     hoursEl = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     minutesEl = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
     secondsEl = Math.floor((timeleft % (1000 * 60)) / 1000);
-    daysEl.innerHTML = (seconds < 10) ? "0" + seconds : seconds;
-}
 
+
+}
+secondsEl.innerHTML = secondsEl.value;
