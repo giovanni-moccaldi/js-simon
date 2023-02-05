@@ -83,17 +83,13 @@ const secondsEl = document.getElementById("seconds");
 let countDownDate = new Date("2023-02-06 ").getTime("10:08 :00")
 let myfunc = setInterval(timing, 1000)
 function timing() {
-
     let now = new Date().getTime("09:30:00")
-    const seconds = now.getSeconds() // Get the second (0-59)
-    const minutes = now.getMinutes() // Get the minute (0-59)
-    const hours = now.getHours() //Get the hour (0-23)
-    const days = now.getDay() // Get the day as number (0-6)
+    const secondsEL = now.getSeconds() // Get the second (0-59)
+    const minutesEl = now.getMinutes() // Get the minute (0-59)
+    const hoursEl = now.getHours() //Get the hour (0-23)
+    const daysEl = now.getDay() // Get the day as number (0-6)
 
-    secondsEl.innerHTML = (seconds < 10) ? "0" + seconds : seconds;
-    minutesEl.innerHTML = (minutes < 10) ? "0" + minutes : minutes;
-    hoursEl.innerHTML = (hours < 10) ? "0" + hours : hours;
-    daysEl.innerHTML = (days < 10) ? "0" + days : days;
+
 
     let timeleft = countDownDate - now;
     daysEl = Math.floor(timeleft % (1000 * 60 * 60 * 24));
@@ -102,5 +98,9 @@ function timing() {
     secondsEl = Math.floor((timeleft % (1000 * 60)) / 1000);
 
 
+    secondsEl.innerHTML = (seconds < 10) ? "0" + seconds : seconds;
+    minutesEl.innerHTML = (minutes < 10) ? "0" + minutes : minutes;
+    hoursEl.innerHTML = (hours < 10) ? "0" + hours : hours;
+    daysEl.innerHTML = (days < 10) ? "0" + days : days;
 
 }
