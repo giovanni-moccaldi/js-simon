@@ -80,22 +80,16 @@ const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
-let countDownDate = new Date("2023-02-06 ").getTime("10:08 :00")
+let countDownDate = new Date(2023, 02, 05).getTime()
 let myfunc = setInterval(timing, 1000)
 function timing() {
-    let now = new Date().getTime("09:30:00")
-    const secondsEL = now.getSeconds() // Get the second (0-59)
-    const minutesEl = now.getMinutes() // Get the minute (0-59)
-    const hoursEl = now.getHours() //Get the hour (0-23)
-    const daysEl = now.getDay() // Get the day as number (0-6)
-
-
+    let now = new Date().getTime()
 
     let timeleft = countDownDate - now;
-    daysEl = Math.floor(timeleft % (1000 * 60 * 60 * 24));
-    hoursEl = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    minutesEl = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    secondsEl = Math.floor((timeleft % (1000 * 60)) / 1000);
+    let days = Math.floor(timeleft % (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
 
     secondsEl.innerHTML = (seconds < 10) ? "0" + seconds : seconds;
